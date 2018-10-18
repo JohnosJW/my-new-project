@@ -12,14 +12,17 @@
 */
 
 Route::get('/', function () {
-    $medium = resolve('medium-php-sdk');
-    dd($medium);
+    return view('welcome');
 });
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/about', function () {
+    return "About me";
+});
+
+Route::get('/post/{id}', 'PostsController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
